@@ -66,5 +66,6 @@
 }
 
 :host([is-open]) .modal-backdrop.fade {
+  transition: opacity 200ms linear;
   opacity: 0.7;
 }

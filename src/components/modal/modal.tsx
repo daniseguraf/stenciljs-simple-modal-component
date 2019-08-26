@@ -11,10 +11,6 @@ export class Modal {
   backdrop: HTMLElement;
   @Prop({mutable: true, reflectToAttr: true}) isOpen = false;
 
-  setDisplay() {
-    this.isOpen = true;
-  }
-
   @Method()
   async open() {
     this.backdrop.style.display = 'block';
@@ -24,7 +20,7 @@ export class Modal {
 
     setTimeout(() => {
       this.isOpen = true;
-    }, 1);
+    }, 100);
   }
 
   @Method()
@@ -37,7 +33,7 @@ export class Modal {
       setTimeout(() => {
         this.modal.style.display = 'none';
         this.backdrop.style.display = 'none';
-      }, 100);
+      }, 150);
     }
   }
 
