@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Simple Modal Component</title>
+
+  <script type="module" src="/build/stenciljs-simple-modal-component.esm.js"></script>
+  <script nomodule src="/build/stenciljs-simple-modal-component.js"></script>
+
+</head>
+<body>
+  <button id="triggerStandardModal">Ver Modal</button>
+  <ce-modal id="standardModal">
+    <h2>Modal Title</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, possimus neque. Suscipit officia illo beatae ipsam!
+    Delectus, illum commodi. Et optio rem ipsum quos nihil? Quisquam consequatur vero nulla accusantium.</p>
+  </ce-modal>
+
+  <script>
+    const modal = document.querySelector('#standardModal');
+    const btn = document.querySelector('#triggerStandardModal');
+
+    btn.addEventListener('click', () => {
+      modal.open(() => {
+        return this.isOpen = true
+      })
+      // if(!this.isOpen) {
+      // }
+    })
+  </script>
+
+</body>
+</html>
