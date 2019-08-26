@@ -12,7 +12,7 @@ export namespace Components {
   interface CeModal {
     'close': (e: any) => Promise<void>;
     'isOpen': boolean;
-    'open': (callback: Function) => Promise<void>;
+    'open': () => Promise<void>;
   }
 }
 

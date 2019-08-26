@@ -12,27 +12,27 @@ export class Modal {
   @Prop({mutable: true, reflectToAttr: true}) isOpen = false;
 
   setDisplay() {
-    this.backdrop.style.display = 'block'
-    this.modal.style.display = 'block'
+    this.isOpen = true;
   }
 
   @Method()
-  async open(callback: Function) {
-    console.log(callback);
-
+  async open() {
     this.backdrop.style.display = 'block';
     this.modal.style.display = 'block';
 
-    // setTimeout(() => {
-    //   this.isOpen = true;
-    // }, 100);
-    callback();
+    document.querySelector('body').classList.add('modal-open');
+
+    setTimeout(() => {
+      this.isOpen = true;
+    }, 1);
   }
 
   @Method()
   async close(e: any) {
     if (e.target.classList.value === 'modal fade' ) {
       this.isOpen = false;
+
+      document.querySelector('body').classList.remove('modal-open');
 
       setTimeout(() => {
         this.modal.style.display = 'none';
@@ -42,8 +42,6 @@ export class Modal {
   }
 
   render() {
-    // console.log(this.isOpen);
-
     return [
       <div class="modal fade" onClick={this.close.bind(this)} ref={el => this.modal = el }>
         <div class="modal-dialog">
